@@ -6,9 +6,10 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # ログイン処理のコード
     if user = User.authenticate_by(params.permit(:email_address, :password))
       start_new_session_for user
-      redirect_to after_authentication_url
+      redirect_to root_path
     else
       redirect_to new_session_path, alert: "Try another email address or password."
     end
