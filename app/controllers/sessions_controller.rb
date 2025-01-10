@@ -5,6 +5,10 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def show
+
+  end
+
   def create
     # ログイン処理のコード
     if user = User.authenticate_by(params.permit(:email_address, :password))
